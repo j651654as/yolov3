@@ -31,6 +31,9 @@ if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
+import warnings
+warnings.warn('User provided device_type of \'cuda\', but CUDA is not available. Disabling')
+
 import val  # for end-of-epoch mAP
 from models.experimental import attempt_load
 from models.yolo import Model
